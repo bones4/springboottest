@@ -8,5 +8,5 @@ WORKDIR /home/wangtw/springcloudtest
 
 COPY target/springboottest-0.0.1-SNAPSHOT.jar ./springboottest.jar
 
-RUN java jar ./springboottest.jar > /dev/null 2>&1 &
+#RUN java jar ./springboottest.jar > /dev/null 2>&1 &
 
