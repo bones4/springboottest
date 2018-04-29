@@ -33,6 +33,11 @@ public class App {
 		return "Hello World!";
 	}
 	
+	@RequestMapping("/a")
+	public String a() {
+		return "Hello a!";
+	}
+	
 	@Value("${server.port}")
 	String port;
 	@RequestMapping("/hi")
