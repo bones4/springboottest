@@ -1,6 +1,8 @@
 package qing.springboottest;
 
 import org.mybatis.spring.annotation.MapperScan;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -25,6 +27,8 @@ import mybatis.service.HelloWorldService;
 @MapperScan("mybatis")
 //@EnableEurekaClient
 public class App {
+	Logger logger = LoggerFactory.getLogger(App.class);
+	
 	@Autowired
 	HelloWorldService helloWorldService;
 
@@ -47,6 +51,8 @@ public class App {
 
 	@RequestMapping(value = "/create/hello", method = RequestMethod.POST, consumes = { "text/plain", "application/*" })
 	public @ResponseBody long createHello(@RequestBody HelloDO helloDO) {
+		final String api = "hello";
+		logger.info(api + ": id: " + helloDO.getId() + ", name: "+helloDO.getName());
 		helloWorldService.addHello(helloDO);
 		return helloDO.getId();
 	}
