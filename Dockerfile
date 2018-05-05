@@ -2,7 +2,11 @@ FROM springcloudenv:v1
 
 MAINTAINER by wangtw
 
-RUN mkdir -p /home/wangtw/springcloudtest
+RUN mkdir -p /home/wangtw/springcloudtest && \
+ cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+ echo 'Asia/Shanghai' >/etc/timezone
+ 
+ENV LANG="C.UTF-8"
 
 WORKDIR /home/wangtw/springcloudtest
 
