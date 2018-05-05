@@ -23,7 +23,7 @@ import mybatis.service.HelloWorldService;
 @SpringBootApplication(scanBasePackages = "mybatis/service")
 @RestController
 @MapperScan("mybatis")
-@EnableEurekaClient
+//@EnableEurekaClient
 public class App {
 	@Autowired
 	HelloWorldService helloWorldService;
